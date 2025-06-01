@@ -47,3 +47,5 @@ INNER JOIN Book B ON B.Book_ID = L.Book_ID
 -- • GET /books/:id/reviews → Show all reviews for a book with member name and comments
 SELECT  RB .* ,M.FName +' '+M.LName AS 'MEMBER NAME' FROM ReviewBook RB
 LEFT JOIN Members M ON M.M_ID = RB.M_ID 
+-- • GET /libraries/:id/staff → List all staff working in a given library
+SELECT S.* , l.L_Name AS 'LIBRARY NAME' FROM Staff S INNER JOIN Library L ON L.L_ID = S.L_ID

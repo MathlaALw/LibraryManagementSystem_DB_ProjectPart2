@@ -103,8 +103,12 @@ LEFT JOIN Members M ON M.M_ID = RB.M_ID
 
 **• GET /libraries/:id/staff → List all staff working in a given library**
 ```sql
-
+SELECT S.* , l.L_Name AS 'LIBRARY NAME' FROM Staff S INNER JOIN Library L ON L.L_ID = S.L_ID
 ```
+
+![List all staff working in a given library](./image/GET-libraries-id-staff.png)
+
+
 **• GET /books/price-range?min=5&max=15 → Show books whose prices fall within a given range**
 ```sql
 
