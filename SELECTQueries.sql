@@ -69,3 +69,6 @@ SELECT L.* ,B.Title AS 'BOOK TITLE', L.Status  FROM Loan L
 INNER JOIN Book B ON B.Book_ID=L.Book_ID
 -- • GET /members/inactive →List all members who have never borrowed any book.
 SELECT * FROM Members WHERE M_ID NOT IN (SELECT DISTINCT M_ID FROM Loan);
+
+-- • GET /books/never-loaned → List books that were never loaned.
+SELECT * FROM Book WHERE Book_ID NOT IN (SELECT DISTINCT Book_ID FROM Loan);

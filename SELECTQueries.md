@@ -170,8 +170,11 @@ SELECT * FROM Members WHERE M_ID NOT IN (SELECT DISTINCT M_ID FROM Loan);
 
 **• GET /books/never-loaned → List books that were never loaned.**
 ```sql
-
+SELECT * FROM Book WHERE Book_ID NOT IN (SELECT DISTINCT Book_ID FROM Loan);
 ```
+
+![List books that were never loaned](./image/GET-books-never-loaned.png)
+
 **• GET /payments →List all payments with member name and book title.**
 ```sql
 
