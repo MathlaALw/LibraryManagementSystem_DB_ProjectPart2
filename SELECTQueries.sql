@@ -67,3 +67,5 @@ WHERE Book_ID NOT IN (SELECT DISTINCT Book_ID FROM ReviewBook);
 -- • GET /members/:id/loan-history →Show a member’s loan history with book titles and loan status.
 SELECT L.* ,B.Title AS 'BOOK TITLE', L.Status  FROM Loan L 
 INNER JOIN Book B ON B.Book_ID=L.Book_ID
+-- • GET /members/inactive →List all members who have never borrowed any book.
+SELECT * FROM Members WHERE M_ID NOT IN (SELECT DISTINCT M_ID FROM Loan);
