@@ -56,3 +56,6 @@ SELECT L.* , B.* , M.FName +' '+M.LName AS 'MEMBER NAME' FROM Members M
 INNER JOIN Loan L ON M.M_ID = L.M_ID 
 INNER JOIN Book B ON B.Book_ID = L.Book_ID
 WHERE L.Status='Issued'
+-- • GET /members/with-fines → List members who have paid any fine
+SELECT M.* , P.Amount FROM Members M
+INNER JOIN Payment P ON M.M_ID = P.M_ID

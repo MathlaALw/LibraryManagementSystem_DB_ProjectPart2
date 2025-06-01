@@ -132,8 +132,15 @@ WHERE L.Status='Issued'
 
 **• GET /members/with-fines → List members who have paid any fine**
 ```sql
-
+SELECT M.* , P.Amount FROM Members M
+INNER JOIN Payment P ON M.M_ID = P.M_ID
 ```
+
+
+![List members who have paid any fine](./image/GET-members-with-fines.png)
+
+
+
 **• GET /books/never-reviewed → List books that have never been reviewed**
 ```sql
 
