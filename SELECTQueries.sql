@@ -30,3 +30,7 @@ SELECT M.FName + ' ' + M.LName AS 'MEMBER NAME', SUM(P.Amount) AS 'TOTAL FINE'
 FROM Payment P
 JOIN Members M ON P.M_ID = M.M_ID
 GROUP BY M.FName, M.LName;
+-- • GET /reviews → Reviews with member and book info
+ SELECT  M.FName +' '+M.LName AS 'MEMBER NAME' ,B.* ,RB.Rating AS 'RATING', RB.Comments AS 'COMMENTS',RB.Review_Date AS 'REVIEW DATE' FROM ReviewBook RB 
+ INNER JOIN Book B ON B.Book_ID = RB.Book_ID 
+ INNER JOIN Members M ON M.M_ID = B.M_ID

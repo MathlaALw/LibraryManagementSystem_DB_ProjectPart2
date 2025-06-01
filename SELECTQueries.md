@@ -63,8 +63,14 @@ GROUP BY M.FName, M.LName;
 
 **• GET /reviews → Reviews with member and book info**
 ```sql
-
+ SELECT  M.FName +' '+M.LName AS 'MEMBER NAME' ,B.* ,RB.Rating AS 'RATING', RB.Comments AS 'COMMENTS',RB.Review_Date AS 'REVIEW DATE' FROM ReviewBook RB 
+ INNER JOIN Book B ON B.Book_ID = RB.Book_ID 
+ INNER JOIN Members M ON M.M_ID = B.M_ID
 ```
+
+
+![Reviews with member and book info](./image/GET-reviews.png)
+
 **• GET /books/popular → List top 3 books by number of times they were loaned**
 ```sql
 
