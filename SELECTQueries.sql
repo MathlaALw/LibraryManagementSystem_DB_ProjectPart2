@@ -88,3 +88,8 @@ INNER JOIN Book B ON B.Book_ID = L.Book_ID WHERE L.Status ='Overdue'
 SELECT COUNT(*) AS Loan_Count FROM Loan
 -- • GET /members/:id/fines → Get total fines paid by a member across all loans.
 SELECT SUM(Amount) AS Total_Fines FROM Payment
+
+-- • GET /libraries/:id/book-stats → Show count of available and unavailable books in a library.
+SELECT B.Available_State,COUNT(*) AS 'BOOK COUNT' FROM Book B 
+INNER JOIN LibraryBook LB ON LB.Book_ID = B.Book_ID
+GROUP BY  B.Available_State;

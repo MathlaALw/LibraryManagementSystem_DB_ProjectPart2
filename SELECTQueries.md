@@ -210,8 +210,11 @@ SELECT SUM(Amount) AS Total_Fines FROM Payment
 
 **• GET /libraries/:id/book-stats → Show count of available and unavailable books in a library.**
 ```sql
-
+SELECT B.Available_State,COUNT(*) AS 'BOOK COUNT' FROM LibraryBook LB
+INNER JOIN Book B ON LB.Book_ID = B.Book_ID
+GROUP BY  B.Available_State;
 ```
+![Show count of available and unavailable books in a library](./image/GET-libraries-id-book-stats.png)
 **• GET /reviews/top-rated → Return books with more than 5 reviews and average rating > 4.5.**
 ```sql
 
