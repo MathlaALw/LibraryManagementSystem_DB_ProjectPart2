@@ -195,8 +195,12 @@ INNER JOIN Book B ON B.Book_ID = L.Book_ID WHERE L.Status ='Overdue'
 
 **• GET /books/:id/loan-count → Show how many times a book has been loaned.**
 ```sql
+SELECT COUNT(*) AS Loan_Count FROM Loan
 
 ```
+
+![Show how many times a book has been loaned](./image/GET-books-id-loan-count.png)
+
 **• GET /members/:id/fines → Get total fines paid by a member across all loans.**
 ```sql
 

@@ -82,3 +82,7 @@ INNER JOIN Payment P ON B.Book_ID= P.Book_ID
 SELECT M.FName +' '+ M.LName AS 'FULL NAME' , B.* , L.* FROM Members M
 INNER JOIN Loan L ON M.M_ID = L.M_ID
 INNER JOIN Book B ON B.Book_ID = L.Book_ID WHERE L.Status ='Overdue'
+
+
+-- • GET /books/:id/loan-count → Show how many times a book has been loaned.
+SELECT COUNT(*) AS Loan_Count FROM Loan
