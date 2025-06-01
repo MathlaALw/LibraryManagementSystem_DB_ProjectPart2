@@ -52,8 +52,15 @@ WHERE M_ID NOT IN (SELECT DISTINCT M_ID FROM Loan);
 
 **• GET /payments/summary → Total fine paid per member**
 ```sql
-
+SELECT M.FName + ' ' + M.LName AS 'MEMBER NAME', SUM(P.Amount) AS 'TOTAL FINE'
+FROM Payment P
+JOIN Members M ON P.M_ID = M.M_ID
+GROUP BY M.FName, M.LName;
 ```
+
+![Total fine paid per member](./image/GET-payments-summary.png)
+
+
 **• GET /reviews → Reviews with member and book info**
 ```sql
 

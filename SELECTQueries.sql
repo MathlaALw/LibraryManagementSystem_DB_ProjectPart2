@@ -21,3 +21,12 @@ GROUP BY Book_ID
 SELECT Genre, COUNT(*) AS 'GENRE COUNT'
 FROM Book 
 GROUP BY Genre;
+-- • GET /members/inactive → List members with no loans
+SELECT * 
+FROM Members 
+WHERE M_ID NOT IN (SELECT DISTINCT M_ID FROM Loan);
+-- • GET /payments/summary → Total fine paid per member
+SELECT M.FName + ' ' + M.LName AS 'MEMBER NAME', SUM(P.Amount) AS 'TOTAL FINE'
+FROM Payment P
+JOIN Members M ON P.M_ID = M.M_ID
+GROUP BY M.FName, M.LName;
