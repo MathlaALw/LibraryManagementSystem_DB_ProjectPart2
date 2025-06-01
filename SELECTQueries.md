@@ -36,8 +36,12 @@ GROUP BY Book_ID
 ![Show average rating per book](./image/GET-books-id-ratings.png)
 **• GET /libraries/:id/genres → Count books by genre**
 ```sql
-
+SELECT Genre, COUNT(*) AS 'GENRE COUNT'
+FROM Book 
+GROUP BY Genre;
 ```
+![Count books by genre](./image/GET-libraries-id-genres.png)
+
 **• GET /members/inactive → List members with no loans**
 ```sql
 
