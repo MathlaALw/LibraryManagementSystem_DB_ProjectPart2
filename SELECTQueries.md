@@ -20,8 +20,13 @@ SELECT * FROM Book WHERE Available_State = 'False'
 ![List books not available](./image/GET-books-unavailable.png)
 **• GET /members/top-borrowers → Members who borrowed >2 books**
 ```sql
-
+SELECT M.FName + ' ' + M.LName AS 'MEMEBER NAME', COUNT (B.M_ID) AS 'TOTAL BORROWED' FROM Members M 
+INNER JOIN Book B ON M.M_ID = B.M_ID
+GROUP BY M.FName,M.LName, M.M_ID
+HAVING COUNT (B.M_ID)  > 2;
 ```
+![Members who borrowed >2 books](./image/GET-members-top-borrowers.png)
+
 **• GET /books/:id/ratings → Show average rating per book**
 ```sql
 

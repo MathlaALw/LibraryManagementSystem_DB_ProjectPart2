@@ -9,3 +9,9 @@ INNER JOIN Loan L ON M.M_ID = L.M_ID
 INNER JOIN Book B ON B.Book_ID = L.Book_ID WHERE L.Status ='Overdue'
 -- • GET /books/unavailable → List books not available
 SELECT * FROM Book WHERE Available_State = 'False'
+-- • GET /members/top-borrowers → Members who borrowed >2 books
+SELECT M.FName + ' ' + M.LName AS 'MEMEBER NAME', COUNT (B.M_ID) AS 'TOTAL BORROWED' FROM Members M 
+INNER JOIN Book B ON M.M_ID = B.M_ID
+GROUP BY M.FName,M.LName, M.M_ID
+HAVING COUNT (B.M_ID)  > 2;
+
