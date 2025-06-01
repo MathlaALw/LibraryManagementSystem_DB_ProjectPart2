@@ -21,3 +21,11 @@ CREATE CLUSTERED INDEX LibraryBook_LibraryID_BookID ON LibraryBook(L_ID, Book_ID
 
 -- • Non-clustered on Genre → Filter by genre
 CREATE NONCLUSTERED INDEX Book_Genre ON Book(Genre);
+
+
+
+
+-- Loan Table
+-- • Non-clustered on MemberID → Loan history
+CREATE NONCLUSTERED INDEX Loan_MemberID ON Loan(M_ID);
+
