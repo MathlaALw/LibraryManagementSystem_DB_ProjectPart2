@@ -44,3 +44,6 @@ ORDER BY Loan_Count DESC;
 SELECT M.* , B.Title AS 'BOOK TITLE' , L.Loan_Date AS 'LONE DATE' ,L.Return_Date AS 'RETURN DATE' FROM Members M 
 INNER JOIN Loan L ON M.M_ID = L.M_ID
 INNER JOIN Book B ON B.Book_ID = L.Book_ID
+-- • GET /books/:id/reviews → Show all reviews for a book with member name and comments
+SELECT  RB .* ,M.FName +' '+M.LName AS 'MEMBER NAME' FROM ReviewBook RB
+LEFT JOIN Members M ON M.M_ID = RB.M_ID 
