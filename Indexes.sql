@@ -31,3 +31,6 @@ CREATE NONCLUSTERED INDEX Loan_MemberID ON Loan(M_ID);
 
 -- • Non-clustered on Status → Filter by status
 CREATE NONCLUSTERED INDEX Loan_Status ON Loan(Status);
+
+-- • Composite index on BookID, LoanDate, ReturnDate → Optimize overdue checks
+CREATE NONCLUSTERED INDEX Loan_Book_Loan_Return ON Loan(Book_ID, Loan_Date, Return_Date);
