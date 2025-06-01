@@ -51,3 +51,8 @@ LEFT JOIN Members M ON M.M_ID = RB.M_ID
 SELECT S.* , l.L_Name AS 'LIBRARY NAME' FROM Staff S INNER JOIN Library L ON L.L_ID = S.L_ID
 -- • GET /books/price-range?min=5&max=15 → Show books whose prices fall within a given range
 SELECT * FROM Book WHERE Price BETWEEN 5 AND 15
+-- • GET /loans/active → List all currently active loans (not yet returned) with member and book info
+SELECT L.* , B.* , M.FName +' '+M.LName AS 'MEMBER NAME' FROM Members M 
+INNER JOIN Loan L ON M.M_ID = L.M_ID 
+INNER JOIN Book B ON B.Book_ID = L.Book_ID
+WHERE L.Status='Issued'

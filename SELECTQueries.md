@@ -120,8 +120,16 @@ SELECT * FROM Book WHERE Price BETWEEN 5 AND 15
 
 **• GET /loans/active → List all currently active loans (not yet returned) with member and book info**
 ```sql
-
+SELECT L.* , B.* , M.FName +' '+M.LName AS 'MEMBER NAME' FROM Members M 
+INNER JOIN Loan L ON M.M_ID = L.M_ID 
+INNER JOIN Book B ON B.Book_ID = L.Book_ID
+WHERE L.Status='Issued'
 ```
+
+![List all currently active loans (not yet returned) with member and book info](./image/GET-loans-active.png)
+
+
+
 **• GET /members/with-fines → List members who have paid any fine**
 ```sql
 
