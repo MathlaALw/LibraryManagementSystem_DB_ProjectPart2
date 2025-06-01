@@ -19,3 +19,5 @@ CREATE NONCLUSTERED INDEX Book_ISBN ON Book(ISBN);
 CREATE CLUSTERED INDEX LibraryBook_LibraryID_BookID ON LibraryBook(L_ID, Book_ID);
 
 
+-- • Non-clustered on Genre → Filter by genre
+CREATE NONCLUSTERED INDEX Book_Genre ON Book(Genre);
