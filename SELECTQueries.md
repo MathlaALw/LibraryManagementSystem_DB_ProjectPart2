@@ -177,8 +177,13 @@ SELECT * FROM Book WHERE Book_ID NOT IN (SELECT DISTINCT Book_ID FROM Loan);
 
 **• GET /payments →List all payments with member name and book title.**
 ```sql
-
+SELECT P.* ,M.FName +' '+M.LName AS 'MEMBER NAME' , B.Title AS 'BOOK TITLE' FROM Members M 
+INNER JOIN Book B ON M.M_ID = B.M_ID
+INNER JOIN Payment P ON B.Book_ID= P.Book_ID
 ```
+
+![List all payments with member name and book title](./image/GET-payments.png)
+
 **• GET /loans/overdue→ List all overdue loans with member and book details.**
 ```sql
 

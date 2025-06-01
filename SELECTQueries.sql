@@ -72,3 +72,7 @@ SELECT * FROM Members WHERE M_ID NOT IN (SELECT DISTINCT M_ID FROM Loan);
 
 -- • GET /books/never-loaned → List books that were never loaned.
 SELECT * FROM Book WHERE Book_ID NOT IN (SELECT DISTINCT Book_ID FROM Loan);
+-- • GET /payments →List all payments with member name and book title.
+SELECT P.* ,M.FName +' '+M.LName AS 'MEMBER NAME' , B.Title AS 'BOOK TITLE' FROM Members M 
+INNER JOIN Book B ON M.M_ID = B.M_ID
+INNER JOIN Payment P ON B.Book_ID= P.Book_ID
