@@ -93,3 +93,10 @@ SELECT SUM(Amount) AS Total_Fines FROM Payment
 SELECT B.Available_State,COUNT(*) AS 'BOOK COUNT' FROM Book B 
 INNER JOIN LibraryBook LB ON LB.Book_ID = B.Book_ID
 GROUP BY  B.Available_State;
+-- • GET /reviews/top-rated → Return books with more than 5 reviews and average rating > 4.5.
+
+SELECT B.Title, AVG(R.Rating) AS Avg_Rating, COUNT(R.Book_ID) AS 'REVIEW COUNT'
+FROM ReviewBook R
+INNER JOIN Book B ON R.Book_ID = B.Book_ID
+GROUP BY B.Title
+HAVING COUNT(R.Book_ID) > 5 AND AVG(R.Rating) > 4.5;
