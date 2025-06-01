@@ -29,3 +29,5 @@ CREATE NONCLUSTERED INDEX Book_Genre ON Book(Genre);
 -- • Non-clustered on MemberID → Loan history
 CREATE NONCLUSTERED INDEX Loan_MemberID ON Loan(M_ID);
 
+-- • Non-clustered on Status → Filter by status
+CREATE NONCLUSTERED INDEX Loan_Status ON Loan(Status);
