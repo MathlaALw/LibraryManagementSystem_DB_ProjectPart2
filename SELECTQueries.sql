@@ -63,3 +63,7 @@ INNER JOIN Payment P ON M.M_ID = P.M_ID
 SELECT * 
 FROM Book 
 WHERE Book_ID NOT IN (SELECT DISTINCT Book_ID FROM ReviewBook);
+
+-- • GET /members/:id/loan-history →Show a member’s loan history with book titles and loan status.
+SELECT L.* ,B.Title AS 'BOOK TITLE', L.Status  FROM Loan L 
+INNER JOIN Book B ON B.Book_ID=L.Book_ID
