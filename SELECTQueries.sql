@@ -76,3 +76,9 @@ SELECT * FROM Book WHERE Book_ID NOT IN (SELECT DISTINCT Book_ID FROM Loan);
 SELECT P.* ,M.FName +' '+M.LName AS 'MEMBER NAME' , B.Title AS 'BOOK TITLE' FROM Members M 
 INNER JOIN Book B ON M.M_ID = B.M_ID
 INNER JOIN Payment P ON B.Book_ID= P.Book_ID
+
+
+-- • GET /loans/overdue→ List all overdue loans with member and book details.
+SELECT M.FName +' '+ M.LName AS 'FULL NAME' , B.* , L.* FROM Members M
+INNER JOIN Loan L ON M.M_ID = L.M_ID
+INNER JOIN Book B ON B.Book_ID = L.Book_ID WHERE L.Status ='Overdue'

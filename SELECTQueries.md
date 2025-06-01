@@ -186,8 +186,13 @@ INNER JOIN Payment P ON B.Book_ID= P.Book_ID
 
 **• GET /loans/overdue→ List all overdue loans with member and book details.**
 ```sql
-
+SELECT M.FName +' '+ M.LName AS 'FULL NAME' , B.* , L.* FROM Members M
+INNER JOIN Loan L ON M.M_ID = L.M_ID
+INNER JOIN Book B ON B.Book_ID = L.Book_ID WHERE L.Status ='Overdue'
 ```
+![List all overdue loans with member and book details](./image/GET-loans-overdue3.png)
+
+
 **• GET /books/:id/loan-count → Show how many times a book has been loaned.**
 ```sql
 
