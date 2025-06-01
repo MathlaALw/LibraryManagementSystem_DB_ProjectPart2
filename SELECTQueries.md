@@ -29,8 +29,11 @@ HAVING COUNT (B.M_ID)  > 2;
 
 **• GET /books/:id/ratings → Show average rating per book**
 ```sql
+SELECT Book_ID AS 'BOOK ID' , AVG(Rating) AS 'AVERAGE RATING' FROM ReviewBook 
+GROUP BY Book_ID
 
 ```
+![Show average rating per book](./image/GET-books-id-ratings.png)
 **• GET /libraries/:id/genres → Count books by genre**
 ```sql
 

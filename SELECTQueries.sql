@@ -14,4 +14,7 @@ SELECT M.FName + ' ' + M.LName AS 'MEMEBER NAME', COUNT (B.M_ID) AS 'TOTAL BORRO
 INNER JOIN Book B ON M.M_ID = B.M_ID
 GROUP BY M.FName,M.LName, M.M_ID
 HAVING COUNT (B.M_ID)  > 2;
+-- • GET /books/:id/ratings → Show average rating per book
+SELECT Book_ID AS 'BOOK ID' , AVG(Rating) AS 'AVERAGE RATING' FROM ReviewBook 
+GROUP BY Book_ID
 
