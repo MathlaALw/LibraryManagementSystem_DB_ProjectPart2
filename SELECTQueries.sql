@@ -49,3 +49,5 @@ SELECT  RB .* ,M.FName +' '+M.LName AS 'MEMBER NAME' FROM ReviewBook RB
 LEFT JOIN Members M ON M.M_ID = RB.M_ID 
 -- • GET /libraries/:id/staff → List all staff working in a given library
 SELECT S.* , l.L_Name AS 'LIBRARY NAME' FROM Staff S INNER JOIN Library L ON L.L_ID = S.L_ID
+-- • GET /books/price-range?min=5&max=15 → Show books whose prices fall within a given range
+SELECT * FROM Book WHERE Price BETWEEN 5 AND 15

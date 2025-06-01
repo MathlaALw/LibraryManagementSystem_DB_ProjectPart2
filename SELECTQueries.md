@@ -111,8 +111,13 @@ SELECT S.* , l.L_Name AS 'LIBRARY NAME' FROM Staff S INNER JOIN Library L ON L.L
 
 **• GET /books/price-range?min=5&max=15 → Show books whose prices fall within a given range**
 ```sql
-
+SELECT * FROM Book WHERE Price BETWEEN 5 AND 15
 ```
+
+
+![Show books whose prices fall within a given range](./image/GET-books-price-range.png)
+
+
 **• GET /loans/active → List all currently active loans (not yet returned) with member and book info**
 ```sql
 
