@@ -40,3 +40,7 @@ FROM Loan L
 JOIN Book B ON L.Book_ID = B.Book_ID
 GROUP BY B.Title
 ORDER BY Loan_Count DESC;
+-- • GET /members/:id/history → Retrieve full loan history of a specific member including book title,loan & return dates
+SELECT M.* , B.Title AS 'BOOK TITLE' , L.Loan_Date AS 'LONE DATE' ,L.Return_Date AS 'RETURN DATE' FROM Members M 
+INNER JOIN Loan L ON M.M_ID = L.M_ID
+INNER JOIN Book B ON B.Book_ID = L.Book_ID
