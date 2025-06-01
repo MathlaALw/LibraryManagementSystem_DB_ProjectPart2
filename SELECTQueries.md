@@ -17,7 +17,7 @@ INNER JOIN Book B ON B.Book_ID = L.Book_ID WHERE L.Status ='Overdue'
 ```sql
 SELECT * FROM Book WHERE Available_State = 'False'
 ```
-![](./image/GET-books-unavailable.png)
+![List books not available](./image/GET-books-unavailable.png)
 **• GET /members/top-borrowers → Members who borrowed >2 books**
 ```sql
 
