@@ -44,8 +44,12 @@ GROUP BY Genre;
 
 **• GET /members/inactive → List members with no loans**
 ```sql
-
+SELECT * 
+FROM Members 
+WHERE M_ID NOT IN (SELECT DISTINCT M_ID FROM Loan);
 ```
+![List members with no loans](./image/GET-members-inactive.png)
+
 **• GET /payments/summary → Total fine paid per member**
 ```sql
 
