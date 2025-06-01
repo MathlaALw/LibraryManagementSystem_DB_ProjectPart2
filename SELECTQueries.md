@@ -73,8 +73,16 @@ GROUP BY M.FName, M.LName;
 
 **• GET /books/popular → List top 3 books by number of times they were loaned**
 ```sql
+SELECT TOP 3 B.Title, COUNT(*) AS Loan_Count
+FROM Loan L
+JOIN Book B ON L.Book_ID = B.Book_ID
+GROUP BY B.Title
+ORDER BY Loan_Count DESC;
 
 ```
+
+![List top 3 books by number of times they were loaned](./image/GET-books-popular.png)
+
 **• GET /members/:id/history → Retrieve full loan history of a specific member including book title,loan & return dates**
 ```sql
 

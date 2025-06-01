@@ -34,3 +34,9 @@ GROUP BY M.FName, M.LName;
  SELECT  M.FName +' '+M.LName AS 'MEMBER NAME' ,B.* ,RB.Rating AS 'RATING', RB.Comments AS 'COMMENTS',RB.Review_Date AS 'REVIEW DATE' FROM ReviewBook RB 
  INNER JOIN Book B ON B.Book_ID = RB.Book_ID 
  INNER JOIN Members M ON M.M_ID = B.M_ID
+-- • GET /books/popular → List top 3 books by number of times they were loaned
+SELECT TOP 3 B.Title, COUNT(*) AS Loan_Count
+FROM Loan L
+JOIN Book B ON L.Book_ID = B.Book_ID
+GROUP BY B.Title
+ORDER BY Loan_Count DESC;
