@@ -203,8 +203,11 @@ SELECT COUNT(*) AS Loan_Count FROM Loan
 
 **• GET /members/:id/fines → Get total fines paid by a member across all loans.**
 ```sql
-
+SELECT SUM(Amount) AS Total_Fines FROM Payment
 ```
+
+![Get total fines paid by a member across all loans](./image/GET-members-id-fines.png)
+
 **• GET /libraries/:id/book-stats → Show count of available and unavailable books in a library.**
 ```sql
 
