@@ -59,3 +59,7 @@ WHERE L.Status='Issued'
 -- • GET /members/with-fines → List members who have paid any fine
 SELECT M.* , P.Amount FROM Members M
 INNER JOIN Payment P ON M.M_ID = P.M_ID
+-- • GET /books/never-reviewed → List books that have never been reviewed
+SELECT * 
+FROM Book 
+WHERE Book_ID NOT IN (SELECT DISTINCT Book_ID FROM ReviewBook);

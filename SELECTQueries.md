@@ -143,8 +143,15 @@ INNER JOIN Payment P ON M.M_ID = P.M_ID
 
 **• GET /books/never-reviewed → List books that have never been reviewed**
 ```sql
-
+SELECT * 
+FROM Book 
+WHERE Book_ID NOT IN (SELECT DISTINCT Book_ID FROM ReviewBook);
 ```
+
+![List books that have never been reviewed](./image/GET-books-never-reviewed.png)
+
+
+
 **• GET /members/:id/loan-history →Show a member’s loan history with book titles and loan status.**
 ```sql
 
