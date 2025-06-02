@@ -41,28 +41,12 @@ INNER JOIN Library L ON L.L_ID = LB.L_ID
 GROUP BY L.L_ID;
 
 
-
-
-
-
-
-
-
-
-
-
-
 -- • Member activity summary (loan + fines) 
 
-SELECT 
-    m.MemberID,
-    COUNT(DISTINCT l.LoanID) AS TotalLoans,
-    SUM(p.Amount) AS TotalFines
-FROM 
-    Members m
-LEFT JOIN 
-    Loans l ON m.MemberID = l.MemberID
-LEFT JOIN 
-    Payments p ON m.MemberID = p.MemberID AND p.Status = 'Completed'
-GROUP BY 
-    m.MemberID;
+SELECT M.M_ID,
+    COUNT(P.Book_ID) AS TotalLoans,
+    SUM(P.Amount) AS TotalFines
+FROM  Members M
+LEFT JOIN Loan L ON M.M_ID = L.M_ID
+LEFT JOIN  Payment P ON M.M_ID = P.M_ID 
+GROUP BY M.M_ID;
