@@ -167,3 +167,22 @@ END;
 
 SELECT dbo.fn_FormatMemberName(1) AS FormatMemberName ;
 
+
+
+-- Reflect: Where would such functions be used in a frontend (e.g., member profile, book search, admin analytics)?
+
+-- GetBookAverageRating(BookID)  --->  admin analytics
+
+-- GetNextAvailableBook(Genre, Title, LibraryID) ---> book search
+
+-- CalculateLibraryOccupancyRate(LibraryID) ---> admin analytics
+
+-- fn_GetMemberLoanCount ---> admin analytics / member profile
+
+-- fn_GetLateReturnDays ---> book search
+
+-- fn_ListAvailableBooksByLibrary ---> admin analytics
+
+-- fn_GetTopRatedBooks ---> book search
+
+-- fn_FormatMemberName ---> admin analytics / member profile
